@@ -5,19 +5,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Secret Santa 2025</title>
+
+<!-- Google Fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+Mexico+Guides&display=swap" rel="stylesheet">
+
 <style>
     body {
-        font-family: Momo Signature, Momo Signature;
-        background-image: url('Gold Background.jpg');
+        font-family: 'Momo Signature', sans-serif;
+        background-image: url('Gold%20Background.jpg'); /* rename your file or encode spaces */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         text-align: center;
         padding: 20px;
+        color: #fff;
     }
-    h1 { color: # #FFFFFF; }
-    select, input, button { padding: 10px; margin: 10px; font-size: 16px; }
-    #result { margin-top: 20px; font-size: 48px; }
-    img { margin-top: 10px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
-    p.description { font-size: 18px; color: #333; max-width: 600px; margin: 10px auto; }
+
+    h1 {
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        color: #FFFFFF;
+    }
+
+    p.description {
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-size: 18px;
+        color: #FFFFFF;
+        max-width: 600px;
+        margin: 10px auto;
+    }
+
+    select, input, button {
+        padding: 10px;
+        margin: 10px auto;
+        font-size: 16px;
+        display: block;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button {
+        background-color: #ff6f61;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff4c3b;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    img {
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 </style>
+
 </head>
 <body>
 
@@ -30,14 +80,10 @@
 <p>Please adhere to the <strong>minimum gift value of $50.00</strong>.</p>
 
 <p>✨ We wish you a joyful time selecting the perfect gift! 🎄✨</p>
-    
+
 <label for="group">Select Group:</label> <select id="group"> <option value="">--Choose--</option> <option value="adults">Adults</option> <option value="kids">Kids</option> </select>
 
-<br>
-
 <label for="name">Enter Your Name:</label> <input type="text" id="name" placeholder="Your Name">
-
-<br>
 
 <button onclick="showMatch()">Reveal Your Secret Santa!</button>
 
