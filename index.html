@@ -11,32 +11,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+Mexico+Guides&display=swap" rel="stylesheet">
 
 <style>
+    /* Body & Background */
     body {
-    font-family: 'Playwrite Mexico Guides', sans-serif;
-    background-image: url('whitebg1.jpg'); /* your file name */
-    background-size: cover;       /* makes the image fill the screen */
-    background-position: center;  /* centers it */
-    background-repeat: no-repeat; /* prevents repeating tiles */
-    background-attachment: fixed; /* keeps it in place when scrolling */
-    text-align: center;
-    padding: 20px;
-    color: #000000;
-}
-
-
-    h1 {
-        font-family: 'Playwrite Mexico Guides', Playwrite Mexico Guides;
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        background-image: url('whitebg1.jpg'); /* your file name */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+        padding: 20px;
         color: #000000;
     }
 
+    /* Headings */
+    h1 {
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-size: 48px;
+        letter-spacing: 1px;
+        color: #ff6f61; /* Christmas accent color */
+        margin-bottom: 20px;
+    }
+
+    /* Description & paragraphs */
     p.description {
-        font-family: 'Playwrite Mexico Guides', Playwrite Mexico Guides;
-        font-size: 18px;
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
         color: #000000;
         max-width: 600px;
         margin: 10px auto;
+        text-align: center;
     }
 
+    p {
+        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-size: 18px;
+        color: #000000;
+    }
+
+    /* Inputs, select, button */
     select, input, button {
         padding: 10px;
         margin: 10px auto;
@@ -44,21 +59,25 @@
         display: block;
         border-radius: 5px;
         border: none;
+        font-family: 'Playwrite Mexico Guides', sans-serif;
     }
 
     button {
         background-color: #ff6f61;
         color: #fff;
         cursor: pointer;
+        transition: 0.3s;
     }
 
     button:hover {
         background-color: #ff4c3b;
     }
 
+    /* Result section */
     #result {
         margin-top: 20px;
         font-size: 24px;
+        font-family: 'Playwrite Mexico Guides', sans-serif;
     }
 
     img {
@@ -92,7 +111,7 @@
 <div id="result"></div>
 
 <script>
-// --- Adults list (replace image URLs with real photos) ---
+// --- Adults list ---
 const adults = {
     "Alleka": {match: "Mellissa", img: "https://via.placeholder.com/150"},
     "Mellissa": {match: "Lyrie", img: "https://via.placeholder.com/150"},
@@ -104,7 +123,7 @@ const adults = {
     "Jamie": {match: "Alleka", img: "https://via.placeholder.com/150"}
 };
 
-// --- Kids list (replace image URLs with real photos) ---
+// --- Kids list ---
 const kids = {
     "Cody": {match: "Keeley", img: "https://via.placeholder.com/150"},
     "Keeley": {match: "Brooke", img: "https://via.placeholder.com/150"},
@@ -137,7 +156,7 @@ function showMatch() {
 
     // Display match
     const matchName = list[name].match;
-    const imgUrl = list[matchName].img; // show image of the person they get
+    const imgUrl = list[matchName].img;
     document.getElementById('result').innerHTML = `<p>You got: <strong>${matchName}</strong></p><img src="${imgUrl}" alt="${matchName}">`;
 }
 </script>
