@@ -8,8 +8,8 @@
 
 <!-- Google Fonts -->
 
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+Mexico+Guides&display=swap" rel="stylesheet">
-
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
 <style>
     /* Body & Background */
     body {
@@ -87,6 +87,33 @@
         border-radius: 50%;
         object-fit: cover;
     }
+
+    /* Fancy handwriting section */
+.handwriting {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: #000;
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+    margin-top: 40px;
+}
+
+.handwriting::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 2px,
+        transparent 40px
+    );
+    z-index: -1;
+}
 </style>
 
 </head>
