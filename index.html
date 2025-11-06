@@ -7,8 +7,7 @@
 <title>Secret Santa 2025</title>
 
 <!-- Google Fonts -->
-
- <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     
 <style>
     /* Body & Background */
@@ -89,37 +88,42 @@
     }
 
     /* Fancy handwriting section */
-.handwriting {
-    font-family: 'Great Vibes', cursive;
-    font-size: 60px;
-    color: #000;
-    position: relative;
-    display: inline-block;
-    line-height: 1.2;
-    margin-top: 40px;
-}
+    .handwriting {
+        font-family: 'Great Vibes', cursive;
+        font-size: 60px;
+        color: #000;
+        position: relative;
+        display: inline-block;
+        line-height: 1.2;
+        margin-top: 40px;
+    }
 
-.handwriting::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.15) 0px,
-        rgba(0, 0, 0, 0.15) 2px,
-        transparent 40px
-    );
-    z-index: -1;
-}
+    .handwriting::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 2px,
+            transparent 40px
+        );
+        z-index: -1;
+    }
 </style>
 
 </head>
 <body>
 
 <h1>🎄 Secret Santa 2025 🎄</h1>
+
+<!-- ✨ Added fancy handwriting line here -->
+<div class="handwriting">
+  Considerando que el desconocimiento y menosprecio de los derechos
+</div>
 
 <p class="description">✨🎁 Welcome to the 2025 Secret Santa Gift Exchange! 🎁✨</p>
 
@@ -129,9 +133,15 @@
 
 <p>✨ We wish you a joyful time selecting the perfect gift! 🎄✨</p>
 
-<label for="group">Select Group:</label> <select id="group"> <option value="">--Choose--</option> <option value="adults">Adults</option> <option value="kids">Kids</option> </select>
+<label for="group">Select Group:</label> 
+<select id="group"> 
+  <option value="">--Choose--</option> 
+  <option value="adults">Adults</option> 
+  <option value="kids">Kids</option> 
+</select>
 
-<label for="name">Enter Your Name:</label> <input type="text" id="name" placeholder="Your Name">
+<label for="name">Enter Your Name:</label> 
+<input type="text" id="name" placeholder="Your Name">
 
 <button onclick="showMatch()">Reveal Your Secret Santa!</button>
 
