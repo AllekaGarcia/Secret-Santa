@@ -1,0 +1,99 @@
+<p style="font-size:18px; color:#333; max-width:600px; margin:10px auto;">
+🎁 Welcome to the Christmas 2025 Gift Exchange!  
+Please follow a minimum gift value of $50. Enter your name below to reveal the person you will be Secret Santa for. Happy gifting! 🎄
+</p>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret Santa 2025</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f2f0;
+        text-align: center;
+        padding: 20px;
+    }
+    h1 { color: #b22222; }
+    select, input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    #result { margin-top: 20px; font-size: 18px; }
+    img { margin-top: 10px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+    p.description { font-size: 18px; color: #333; max-width: 600px; margin: 10px auto; }
+</style>
+</head>
+<body>
+
+<h1>🎄 Secret Santa 2025 🎄</h1>
+
+<p class="description">
+🎁 Welcome to the Christmas 2025 Gift Exchange!  
+Please follow a minimum gift value of $50. Enter your name below to reveal the person you will be Secret Santa for. Happy gifting! 🎄
+</p>
+
+<label for="group">Select Group:</label> <select id="group"> <option value="">--Choose--</option> <option value="adults">Adults</option> <option value="kids">Kids</option> </select>
+
+<br>
+
+<label for="name">Enter Your Name:</label> <input type="text" id="name" placeholder="Your Name">
+
+<br>
+
+<button onclick="showMatch()">Reveal Your Secret Santa!</button>
+
+<div id="result"></div>
+
+<script>
+// --- Adults list (replace image URLs with real photos) ---
+const adults = {
+    "Alleka": {match: "Mellissa", img: "https://via.placeholder.com/150"},
+    "Mellissa": {match: "Lyrie", img: "https://via.placeholder.com/150"},
+    "Trish": {match: "Shevon", img: "https://via.placeholder.com/150"},
+    "Ismae": {match: "Joshua", img: "https://via.placeholder.com/150"},
+    "Shevon": {match: "Trish", img: "https://via.placeholder.com/150"},
+    "Joshua": {match: "Jamie", img: "https://via.placeholder.com/150"},
+    "Lyrie": {match: "Ismae", img: "https://via.placeholder.com/150"},
+    "Jamie": {match: "Alleka", img: "https://via.placeholder.com/150"}
+};
+
+// --- Kids list (replace image URLs with real photos) ---
+const kids = {
+    "Cody": {match: "Keeley", img: "https://via.placeholder.com/150"},
+    "Keeley": {match: "Brooke", img: "https://via.placeholder.com/150"},
+    "Brooke": {match: "Kaelee", img: "https://via.placeholder.com/150"},
+    "Frazea": {match: "Kaleigha", img: "https://via.placeholder.com/150"},
+    "Kaelee": {match: "Cody", img: "https://via.placeholder.com/150"},
+    "Kaleigha": {match: "Frazea", img: "https://via.placeholder.com/150"}
+};
+
+function showMatch() {
+    const group = document.getElementById('group').value;
+    const name = document.getElementById('name').value.trim();
+
+    if (!group) {
+        alert("Please select a group!");
+        return;
+    }
+
+    if (!name) {
+        alert("Please enter your name!");
+        return;
+    }
+
+    let list = group === "adults" ? adults : kids;
+
+    if (!list[name]) {
+        document.getElementById('result').innerHTML = "Name not found in this group. Check spelling!";
+        return;
+    }
+
+    // Display match
+    const matchName = list[name].match;
+    const imgUrl = list[matchName].img; // show image of the person they get
+    document.getElementById('result').innerHTML = `<p>You got: <strong>${matchName}</strong></p><img src="${imgUrl}" alt="${matchName}">`;
+}
+</script>
+
+</body>
+</html>
