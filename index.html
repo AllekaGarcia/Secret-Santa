@@ -32,13 +32,11 @@
         margin-bottom: 10px;
     }
 
-    /* Fancy handwriting section */
+    /* Fancy handwriting section (no guide lines) */
     .handwriting {
         font-family: 'Great Vibes', cursive;
         font-size: 42px;
         color: #000;
-        position: relative;
-        display: inline-block;
         line-height: 1.4;
         margin-top: 20px;
         margin-bottom: 40px;
@@ -47,22 +45,6 @@
 
     .handwriting p {
         margin: 10px 0;
-    }
-
-    .handwriting::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: repeating-linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.1) 0px,
-            rgba(0, 0, 0, 0.1) 2px,
-            transparent 40px
-        );
-        z-index: -1;
     }
 
     /* Paragraphs & descriptions */
@@ -126,7 +108,7 @@
 
 <h1>🎄 Secret Santa 2025 🎄</h1>
 
-<!-- ✨ Fancy handwriting section -->
+<!-- ✨ Fancy handwriting section (no background lines) -->
 <div class="handwriting">
   <p>✨🎁 Welcome to the 2025 Secret Santa Gift Exchange! 🎁✨</p>
   <p>Enter your name below to reveal your recipient.</p>
