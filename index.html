@@ -12,7 +12,7 @@
     /* Body & Background */
     body {
         font-family: 'Great Vibes', cursive;
-        background-image: url('silver.jpg'); /* your background file */
+        background-image: url('whitebg1.jpg'); /* your background file */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -128,11 +128,11 @@
 
 <!-- 🎄 Title -->
 <div class="title">
-  <span class="main"> 🎁Secret Santa 🎁</span>
-  <span class="year">✨2025✨</span>
+  <span class="main">🎄 Secret Santa 🎄</span>
+  <span class="year">2025</span>
 </div>
 
-<!-- ✨ Handwriting Section (smaller and elegant) -->
+<!-- ✨ Handwriting Section -->
 <div class="handwriting">
   <p>✨🎁 Welcome to the 2025 Secret Santa Gift Exchange! 🎁✨</p>
   <p>Enter your name below to reveal your recipient.</p>
@@ -177,6 +177,7 @@ const kids = {
     "Kaleigha": {match: "Frazea", img: "https://via.placeholder.com/150"}
 };
 
+// --- Secret Reveal Function (No Peeking Allowed) ---
 function showMatch() {
     const group = document.getElementById('group').value;
     const name = document.getElementById('name').value.trim();
@@ -191,6 +192,15 @@ function showMatch() {
         return;
     }
 
+    const key = `${group}-revealed`;
+    const alreadyRevealed = localStorage.getItem(key);
+
+    // Prevent peeking at others' names
+    if (alreadyRevealed && alreadyRevealed !== name) {
+        alert("🎅 Sorry! You can only reveal your own Secret Santa once.");
+        return;
+    }
+
     let list = group === "adults" ? adults : kids;
 
     if (!list[name]) {
@@ -198,10 +208,17 @@ function showMatch() {
         return;
     }
 
-    // Display match
     const matchName = list[name].match;
     const imgUrl = list[matchName].img;
-    document.getElementById('result').innerHTML = `<p>You got: <strong>${matchName}</strong></p><img src="${imgUrl}" alt="${matchName}">`;
+
+    // Save who revealed their result
+    localStorage.setItem(key, name);
+
+    // Display their match
+    document.getElementById('result').innerHTML = `
+        <p>You got: <strong>${matchName}</strong></p>
+        <img src="${imgUrl}" alt="${matchName}">
+    `;
 }
 </script>
 
