@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +11,7 @@
 <style>
     /* Body & Background */
     body {
-        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-family: 'Great Vibes', cursive;
         background-image: url('whitebg1.jpg'); /* your file name */
         background-size: cover;
         background-position: center;
@@ -23,35 +22,28 @@
         color: #000; /* all text black */
     }
 
-    /* Headings */
+    /* Title */
     h1 {
-        font-family: 'Playwrite Mexico Guides', sans-serif;
-        font-size: 48px;
-        letter-spacing: 1px;
+        font-family: 'Great Vibes', cursive;
+        font-size: 64px;
         color: #000;
         margin-bottom: 10px;
+        line-height: 1.2;
     }
 
-    /* Fancy handwriting section (no guide lines) */
+    /* Fancy handwriting section */
     .handwriting {
         font-family: 'Great Vibes', cursive;
-        font-size: 42px;
+        font-size: 38px;
         color: #000;
         line-height: 1.4;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 40px;
         text-align: center;
     }
 
     .handwriting p {
         margin: 10px 0;
-    }
-
-    /* Paragraphs & descriptions */
-    p, p.description {
-        font-family: 'Playwrite Mexico Guides', sans-serif;
-        font-size: 18px;
-        color: #000;
     }
 
     /* Inputs, select, and button */
@@ -62,7 +54,7 @@
         display: block;
         border-radius: 5px;
         border: 1px solid #000;
-        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-family: 'Great Vibes', cursive;
         color: #000;
         background-color: #fff;
     }
@@ -72,6 +64,9 @@
         color: #fff;
         cursor: pointer;
         transition: 0.3s;
+        font-family: 'Great Vibes', cursive;
+        font-size: 22px;
+        padding: 10px 20px;
     }
 
     button:hover {
@@ -81,8 +76,8 @@
     /* Result section */
     #result {
         margin-top: 20px;
-        font-size: 24px;
-        font-family: 'Playwrite Mexico Guides', sans-serif;
+        font-size: 28px;
+        font-family: 'Great Vibes', cursive;
         color: #000;
     }
 
@@ -94,11 +89,16 @@
         object-fit: cover;
     }
 
-    /* Responsive: smaller handwriting on mobile */
+    /* Responsive: adjust cursive size on mobile */
     @media (max-width: 600px) {
+        h1 {
+            font-size: 48px;
+        }
         .handwriting {
-            font-size: 32px;
-            line-height: 1.3;
+            font-size: 30px;
+        }
+        button {
+            font-size: 20px;
         }
     }
 </style>
@@ -108,7 +108,7 @@
 
 <h1>🎄 Secret Santa 2025 🎄</h1>
 
-<!-- ✨ Fancy handwriting section (no background lines) -->
+<!-- ✨ Cursive top section -->
 <div class="handwriting">
   <p>✨🎁 Welcome to the 2025 Secret Santa Gift Exchange! 🎁✨</p>
   <p>Enter your name below to reveal your recipient.</p>
