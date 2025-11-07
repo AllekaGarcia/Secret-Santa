@@ -12,7 +12,7 @@
     /* Body & Background */
     body {
         font-family: 'Great Vibes', cursive;
-        background-image: url('whitebg1.jpg'); /* your file name */
+        background-image: url('whitebg1.jpg'); /* your background file */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -23,29 +23,41 @@
     }
 
     /* Title */
-    h1 {
-        font-family: 'Great Vibes', cursive;
-        font-size: 70px;
+    .title {
         color: #000;
-        margin: 10px 0 20px 0;
-        line-height: 1.2;
+        margin: 10px 0 5px 0;
+        line-height: 1.1;
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    }
+
+    .title .main {
+        display: block;
+        font-size: 80px;
+    }
+
+    .title .year {
+        display: block;
+        font-size: 48px;
+        margin-top: -10px;
     }
 
     /* Fancy handwriting section */
     .handwriting {
         font-family: 'Great Vibes', cursive;
-        font-size: 40px;
+        font-size: 34px;
         color: #000;
         line-height: 1.4;
-        margin: 10px auto 40px auto;
+        margin-top: 10px;
+        margin-bottom: 40px;
         text-align: center;
         max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
     }
 
     .handwriting p {
-        margin: 12px 0;
+        margin: 10px 0;
     }
 
     /* Inputs, select, and button */
@@ -93,23 +105,20 @@
 
     /* Responsive styling for mobile */
     @media (max-width: 600px) {
-        h1 {
-            font-size: 52px;
-            margin-bottom: 5px;
+        .title .main {
+            font-size: 58px;
         }
-
+        .title .year {
+            font-size: 36px;
+            margin-top: -6px;
+        }
         .handwriting {
-            font-size: 28px;
+            font-size: 26px;
             line-height: 1.3;
             margin-bottom: 30px;
         }
-
-        select, input, button {
-            font-size: 16px;
-        }
-
-        #result {
-            font-size: 22px;
+        button {
+            font-size: 20px;
         }
     }
 </style>
@@ -117,9 +126,13 @@
 
 <body>
 
-<h1>🎄 Secret Santa 2025 🎄</h1>
+<!-- 🎄 Title -->
+<div class="title">
+  <span class="main">🎄 Secret Santa 🎄</span>
+  <span class="year">2025</span>
+</div>
 
-<!-- ✨ Cursive top section -->
+<!-- ✨ Handwriting Section (smaller and elegant) -->
 <div class="handwriting">
   <p>✨🎁 Welcome to the 2025 Secret Santa Gift Exchange! 🎁✨</p>
   <p>Enter your name below to reveal your recipient.</p>
