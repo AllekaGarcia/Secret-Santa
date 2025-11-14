@@ -12,7 +12,7 @@
     /* Body & Background */
     body {
         font-family: 'Great Vibes', cursive;
-        background-image: url('REDANDGOLD.jpg'); /* your background file */
+        background-image: url('REDANDGOLD.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -177,7 +177,7 @@ const kids = {
     "Kaleigha": {match: "Frazea", img: "https://via.placeholder.com/150"}
 };
 
-// --- Secret Reveal Function (No Peeking Allowed) ---
+// --- Secret Reveal Function (fully fixed) ---
 function showMatch() {
     const group = document.getElementById('group').value;
     const name = document.getElementById('name').value.trim();
@@ -192,12 +192,13 @@ function showMatch() {
         return;
     }
 
-    const key = `${group}-revealed`;
-    const alreadyRevealed = localStorage.getItem(key);
+    // **Single global lock**
+    const key = "secret-santa-2025";
+    const savedName = localStorage.getItem(key);
 
-    // Prevent peeking at others' names
-    if (alreadyRevealed && alreadyRevealed !== name) {
-        alert("🎅 Sorry! You can only reveal your own Secret Santa once.");
+    // If someone already revealed and it's not this same person, block it
+    if (savedName && savedName !== name) {
+        alert("🎅 Sorry! You can only reveal YOUR Secret Santa. You cannot check anyone else.");
         return;
     }
 
@@ -211,7 +212,7 @@ function showMatch() {
     const matchName = list[name].match;
     const imgUrl = list[matchName].img;
 
-    // Save who revealed their result
+    // Lock their name permanently
     localStorage.setItem(key, name);
 
     // Display their match
