@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-    /* Body & Background */
     body {
         font-family: 'Great Vibes', cursive;
         background-image: url('REDANDGOLD.jpg');
@@ -22,7 +21,6 @@
         color: #000;
     }
 
-    /* Title */
     .title {
         color: #000;
         margin: 10px 0 5px 0;
@@ -30,37 +28,16 @@
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
     }
 
-    .title .main {
-        display: block;
-        font-size: 40px;
-    }
+    .title .main { font-size: 40px; }
+    .title .year { font-size: 48px; margin-top: -10px; }
 
-    .title .year {
-        display: block;
-        font-size: 48px;
-        margin-top: -10px;
-    }
-
-    /* Fancy handwriting section */
     .handwriting {
-        font-family: 'Great Vibes', cursive;
         font-size: 34px;
-        color: #000;
-        line-height: 1.4;
         margin-top: 10px;
         margin-bottom: 40px;
-        text-align: center;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
     }
 
-    .handwriting p {
-        margin: 10px 0;
-    }
-
-    /* Inputs, select, and button */
     select, input, button {
         padding: 10px;
         margin: 10px auto;
@@ -68,30 +45,24 @@
         display: block;
         border-radius: 5px;
         border: 1px solid #000;
-        font-family: 'Great Vibes', cursive;
-        color: #000;
         background-color: #fff;
+        font-family: 'Great Vibes', cursive;
     }
 
     button {
         background-color: #000;
         color: #fff;
         cursor: pointer;
-        transition: 0.3s;
         font-size: 22px;
         padding: 10px 20px;
         border-radius: 8px;
     }
 
-    button:hover {
-        background-color: #333;
-    }
+    button:hover { background-color: #333; }
 
-    /* Result section */
     #result {
         margin-top: 20px;
         font-size: 28px;
-        font-family: 'Great Vibes', cursive;
         color: #000;
     }
 
@@ -102,42 +73,21 @@
         border-radius: 50%;
         object-fit: cover;
     }
-
-    /* Responsive styling for mobile */
-    @media (max-width: 600px) {
-        .title .main {
-            font-size: 58px;
-        }
-        .title .year {
-            font-size: 36px;
-            margin-top: -6px;
-        }
-        .handwriting {
-            font-size: 26px;
-            line-height: 1.3;
-            margin-bottom: 30px;
-        }
-        button {
-            font-size: 20px;
-        }
-    }
 </style>
 </head>
 
 <body>
 
-<!-- 🎄 Title -->
 <div class="title">
   <span class="main">✨Secret Santa🎁</span>
   <span class="year">✨2025✨</span>
 </div>
 
-<!-- ✨ Handwriting Section -->
 <div class="handwriting">
   <p>✨🎄 Welcome to the 2025 Secret Santa Gift Exchange!🎁✨</p>
   <p>Enter your name below to reveal your recipient.</p>
   <p>Please adhere to the <strong>minimum gift value of $50.00</strong>.</p>
-  <p>✨ We wish you a joyful time selecting the perfect gift!🎁✨</p>
+  <p>✨ Enjoy selecting the perfect gift! 🎁✨</p>
 </div>
 
 <label for="group">Select Group:</label> 
@@ -177,10 +127,17 @@ const kids = {
     "Kaleigha": {match: "Frazea", img: "https://via.placeholder.com/150"}
 };
 
-// --- Secret Reveal Function (fully fixed) ---
+// --- Secret Reveal Function ---
 function showMatch() {
     const group = document.getElementById('group').value;
     const name = document.getElementById('name').value.trim();
+
+    // 🔐 ADMIN RESET FEATURE
+    if (name === "RESET2025") {
+        localStorage.removeItem("secret-santa-2025");
+        document.getElementById("result").innerHTML = "<p>🔓 Admin reset successful.</p>";
+        return;
+    }
 
     if (!group) {
         alert("Please select a group!");
@@ -192,11 +149,9 @@ function showMatch() {
         return;
     }
 
-    // **Single global lock**
     const key = "secret-santa-2025";
     const savedName = localStorage.getItem(key);
 
-    // If someone already revealed and it's not this same person, block it
     if (savedName && savedName !== name) {
         alert("🎅 Sorry! You can only reveal YOUR Secret Santa. You cannot check anyone else.");
         return;
@@ -212,10 +167,8 @@ function showMatch() {
     const matchName = list[name].match;
     const imgUrl = list[matchName].img;
 
-    // Lock their name permanently
     localStorage.setItem(key, name);
 
-    // Display their match
     document.getElementById('result').innerHTML = `
         <p>You got: <strong>${matchName}</strong></p>
         <img src="${imgUrl}" alt="${matchName}">
@@ -225,3 +178,4 @@ function showMatch() {
 
 </body>
 </html>
+
